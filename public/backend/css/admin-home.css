@@ -1,0 +1,270 @@
+body {
+    color: #777;
+    font-family: "Open Sans", Arial, sans-serif !important;
+    line-height: 22px;
+    margin: 0;
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #ecedf0;
+    width: 100%;
+}
+
+span.text-alert {
+    font-size: 17px;
+    color: red;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+header {
+    background: white;
+}
+
+header .logo {
+    margin-top: 7px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+}
+
+header ul.navbar-nav li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+}
+
+header .row .col-lg-9,
+header .row .col-lg-2 {
+    padding: 0;
+}
+
+header .navbar {
+    padding: 0;
+}
+
+
+/* ul.navbar-nav>li.active>a {
+    color: #00A8E8;
+} */
+
+header ul.navbar-nav>li>a:hover {
+    color: #00A8E8;
+    /* border-top: 3px solid green; */
+}
+
+header ul.navbar-nav li.nav-item:hover ul.sub-menu {
+    display: inline-block;
+}
+
+.active {
+    color: #00A8E8 !important;
+}
+
+header ul.navbar-nav li a {
+    /* padding-right: 18px; */
+    cursor: context-menu;
+    padding: 20px 12px;
+    font-size: 12px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    color: #000000;
+    transition: color .2s ease;
+    display: block;
+}
+
+header ul.navbar-nav>li>a:after {
+    position: absolute;
+    top: 21px;
+    right: 5px;
+    width: 4px;
+    height: 4px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    content: "";
+    transform: rotate(45deg);
+    transition: border-color 0.2s ease;
+}
+
+header ul.sub-menu li a {
+    padding: 10px 20px;
+    width: 240px;
+    font-size: 12px;
+    background: #333333;
+    text-decoration: none;
+    color: #dddddd;
+}
+
+header ul.sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+header ul.sub-menu li a {
+    text-transform: unset;
+    cursor: pointer;
+}
+
+header ul.sub-menu li a:hover {
+    color: #ffffff;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.dropdown button {
+    padding: 0;
+}
+
+.dropdown p,
+.dropdown span {
+    font-size: 13px;
+}
+
+.dropdown p {
+    margin: 0;
+    color: #00A8E8;
+}
+
+header .dropdown-item {
+    font-size: 13px;
+}
+
+header .navbar-light .navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+ol.breadcrumb li.breadcrumb-item a:hover {
+    text-decoration: none;
+}
+
+
+/* ============== */
+
+#content .icon {
+    margin-right: 15px;
+    font-size: 42px;
+    font-size: 4.2rem;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 55px;
+    border-radius: 55px;
+    display: inline-block;
+}
+
+.bg-pink {
+    background: #e36159;
+}
+
+.bg-disease {
+    background: #2c3e50;
+}
+
+.bg-drug {
+    background: #2ecc71;
+}
+
+.bg-cus {
+    background: #3498db;
+}
+
+#content h4.title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333333;
+    font-weight: 400;
+}
+
+strong.amount {
+    margin-right: .2em;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    vertical-align: middle;
+}
+
+#content .card-border {
+    border: none;
+    border-left: 4px solid;
+    background-color: #fdfdfd;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#content .border-pink {
+    border-color: #e36159;
+}
+
+#content .border-disease {
+    border-color: #2c3e50;
+}
+
+#content .border-drug {
+    border-color: #2ecc71;
+}
+
+#content .border-cus {
+    border-color: #3498db;
+}
+
+a.detail {
+    text-align: right;
+    text-decoration: none;
+    padding: 5px 10px 5px;
+    display: block;
+}
+
+
+/* ============== */
+
+[type=submit] {
+    width: 100%;
+}
+
+table a {
+    color: #666;
+}
+
+#content label.control-label {
+    text-align: right;
+}
+
+span.required {
+    color: #d2322d;
+}
+
+#category_order .ui-state-highlight {
+    padding: 24px;
+    background-color: #ffffcc;
+    border: 1px dotted #ccc;
+    cursor: move;
+    margin-top: 12px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    border: none !important;
+    background: none !important;
+}
+
+table.dataTable tbody tr{
+    text-align: center;
+}

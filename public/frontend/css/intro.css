@@ -1,0 +1,47 @@
+/* #intro h3::after {
+    width: 140px;
+    height: 3px;
+    content: '';
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 10px auto 20px;
+} */
+
+
+/* #intro h3 {
+    margin-top: 50px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+} */
+
+#intro h4 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#intro .col-md-4 .icon {
+    width: 53px;
+    margin: 5px auto;
+    border: 2px solid rgb(226, 186, 72);
+    border-radius: 100%;
+    transition: all .3s;
+}
+
+#intro .col-md-4:hover .icon {
+    background-color: rgb(226, 186, 72);
+}
+
+#intro .col-md-4 .icon img {
+    padding: 10px;
+}
+
+#intro .col-md-4 {
+    text-align: center;
+}
+
+#intro .row {
+    padding-top: 40px;
+}

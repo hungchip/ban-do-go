@@ -1,0 +1,162 @@
+@extends('layouts.master')
+
+@section('title', 'Sửa danh mục sản phẩm')
+@section('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="">
+                            <i class="fas fa-home"> Trang chủ</i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">
+                        Danh mục sản phẩm
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>@yield('title')</h2>
+                </div>
+                <div class="card-body">
+                    <h6 class="text-center mb-4" style="color: black; font-weight: bold;">Thông tin chung</h6>
+                    @foreach($edit_cate_product as $edit_value)
+                    <form action="{{URL::to('/update-cate-product/'.$edit_value->cate_id)}}" method="POST" role="form"
+                        enctype="multipart/form-data">
+                        {{csrf_field()}}
+
+                        <div class="col-lg-12 form-group">
+                            <div class="row">
+                                <label for="" class="col-sm-3 control-label">Tên danh mục
+                                    <span class="required">*</span>:
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="name" value="{{$edit_value->cate_name}}" class="form-control"
+                                        required="" name="cate_name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <div class="row">
+                                <label for="" class="col-sm-3 control-label">Slug
+                                    <span class="required">*</span>:
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{$edit_value->cate_slug}}" id="slug" readonly="true" class="form-control" name="cate_slug">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <div class="row">
+                                <label for="" class="col-sm-3 control-label">Thuộc danh mục
+                                    <span class="required">*</span>:
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="cate_parent" class="form-control">
+                                    <option value="0"> -----Danh mục cha-----</option>
+                                    @foreach($category as $key => $value)
+                                        @if($value->cate_parent==0)
+                                            <option {{$value->cate_id==$edit_value->cate_id ? 'selected' : '' }} 
+                                            value="{{$value->cate_id}}">{{$value->cate_name}}</option>
+                                        @endif
+
+                                        @foreach($category as $key => $value2)
+                                            @if($value2->cate_parent==$value->cate_id)
+                                                <option {{$value2->cate_id==$edit_value->cate_id ? 'selected' : '' }} 
+                                                value="{{$value2->cate_id}}">---{{$value2->cate_name}}---</option>
+                                            @endif
+                                       
+                                        @endforeach
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12 form-group">
+                            <div class="row">
+                                <label for="" class="col-sm-3 control-label">Mô tả danh mục
+                                    <span class="required">*</span>:
+                                </label>
+                                <div class="col-sm-9">
+                                    <textarea rows="8" required="" class="form-control"
+                                        name="cate_desc">{{$edit_value->cate_desc}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <div class="row">
+                                <label for="" class="col-sm-3 control-label">Hiển thị
+                                    <span class="required">*</span>:
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="cate_status" class="form-control">
+                                        <option value="0">Ẩn</option>
+                                        <option value="1">Hiện</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" style="width: unset;">Lưu</button>
+                            <a href="{{URL::to('/all-cate-product')}}" class="btn btn-outline-primary">Quay lại</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection()
+
+@section('js')
+<script>
+$('input#name').keyup(function() {
+
+var title, slug;
+
+//Lấy text từ thẻ input title 
+// title = document.getElementById("title").value;
+title = $(this).val();
+//Đổi chữ hoa thành chữ thường
+slug = title.toLowerCase();
+
+ //Đổi chữ hoa thành chữ thường
+ slug = title.toLowerCase();
+ 
+ //Đổi ký tự có dấu thành không dấu
+ slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+ slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+ slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+ slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+ slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+ slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+ slug = slug.replace(/đ/gi, 'd');
+ //Xóa các ký tự đặt biệt
+ slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+ //Đổi khoảng trắng thành ký tự gạch ngang
+ slug = slug.replace(/ /gi, "-");
+ //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+ //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+ slug = slug.replace(/\-\-\-\-\-/gi, '-');
+ slug = slug.replace(/\-\-\-\-/gi, '-');
+ slug = slug.replace(/\-\-\-/gi, '-');
+ slug = slug.replace(/\-\-/gi, '-');
+ //Xóa các ký tự gạch ngang ở đầu và cuối
+ slug = '@' + slug + '@';
+ slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+$('input#slug').val(slug);
+});
+</script>
+@stop

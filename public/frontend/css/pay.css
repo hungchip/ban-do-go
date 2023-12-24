@@ -1,0 +1,33 @@
+label {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td.pro-title a {
+    color: #666666;
+    display: block;
+    min-width: 220px;
+}
+
+td.pro-title {
+    text-align: center;
+}
+
+td.pro-thumbnail {
+    width: 200px;
+}
+
+.card-footer {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    td.pro-thumbnail {
+        min-width: 200px;
+    }
+}
